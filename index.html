@@ -207,24 +207,24 @@
             background: rgba(99, 102, 241, 0.1);
             color: var(--accent);
             padding: 0.5rem 1.25rem;
-            border-radius: 30px;
-            font-size: 0.875rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
             border: 1px solid rgba(99, 102, 241, 0.2);
         }
 
-        h1 {
+        .hero h1 {
             font-family: 'Sora', sans-serif;
             font-size: 3.5rem;
             font-weight: 800;
-            line-height: 1.1;
-            color: var(--text-primary);
+            line-height: 1.15;
             margin-bottom: 1.5rem;
-            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
         }
 
-        .hero-gradient {
+        .hero h1 .gradient-text {
             background: var(--gradient-1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -248,14 +248,12 @@
             padding: 1rem 2rem;
             border-radius: 10px;
             font-weight: 600;
-            font-size: 1rem;
             text-decoration: none;
             transition: all 0.3s;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            cursor: pointer;
-            border: none;
+            font-size: 1.05rem;
         }
 
         .btn-primary {
@@ -272,140 +270,77 @@
         .btn-secondary {
             background: white;
             color: var(--primary);
-            border: 2px solid var(--primary);
+            border: 2px solid var(--border);
         }
 
         .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
+            border-color: var(--primary);
+            background: var(--bg-light);
         }
 
         .hero-visual {
             position: relative;
-            animation: fadeInUp 1s ease 0.2s backwards;
+            animation: fadeInRight 0.8s ease 0.2s both;
         }
 
-        .hero-graphic {
-            position: relative;
-            padding: 2rem;
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        .floating-card {
-            background: white;
-            border-radius: 16px;
-            padding: 1.5rem;
-            box-shadow: var(--shadow-xl);
-            position: absolute;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .card-1 {
-            top: 10%;
-            right: 10%;
-            animation-delay: 0s;
-        }
-
-        .card-2 {
-            bottom: 20%;
-            left: 5%;
-            animation-delay: 1s;
-        }
-
-        .card-3 {
-            top: 50%;
-            right: 30%;
-            animation-delay: 2s;
-        }
-
-        .metric-card {
-            text-align: center;
-            border-left: 3px solid var(--accent);
-        }
-
-        .metric-number {
-            font-family: 'Sora', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent);
-            display: block;
-        }
-
-        .metric-label {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            margin-top: 0.25rem;
-        }
-
-        /* Credibility Section */
-        .credibility {
-            padding: 4rem 2rem;
-            background: white;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .credibility-grid {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
 
-        .cred-item {
-            text-align: center;
+        .stat-card {
+            background: white;
             padding: 2rem;
-            border-radius: 12px;
-            background: var(--bg-light);
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .cred-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--secondary);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .cred-icon {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 1.25rem;
-            background: var(--gradient-2);
             border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
         }
 
-        .cred-title {
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .stat-number {
             font-family: 'Sora', sans-serif;
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: var(--text-primary);
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 0.5rem;
         }
 
-        .cred-desc {
+        .stat-label {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-weight: 500;
         }
 
-        /* Section Styles */
-        section {
+        /* Sections */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 6rem 2rem;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            max-width: 800px;
+            margin: 0 auto 4rem;
         }
 
         .section-tag {
@@ -413,78 +348,29 @@
             background: rgba(99, 102, 241, 0.1);
             color: var(--accent);
             padding: 0.5rem 1.25rem;
-            border-radius: 30px;
-            font-size: 0.875rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 1rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
         }
 
-        h2 {
+        .section-header h2 {
             font-family: 'Sora', sans-serif;
             font-size: 2.75rem;
             font-weight: 800;
+            margin-bottom: 1.25rem;
             color: var(--text-primary);
-            margin-bottom: 1rem;
             letter-spacing: -0.02em;
         }
 
         .section-subtitle {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Why ProcureWise */
-        .why-us {
-            background: var(--bg-light);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s;
-            border-top: 4px solid transparent;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-            border-top-color: var(--accent);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .feature-title {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .feature-desc {
+            font-size: 1.15rem;
             color: var(--text-secondary);
             line-height: 1.7;
         }
 
-        /* Services Section */
-        .services {
-            background: white;
-        }
-
+        /* Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -492,10 +378,11 @@
         }
 
         .service-card {
-            background: var(--bg-light);
+            background: white;
             padding: 2.5rem;
-            border-radius: 16px;
-            border-left: 4px solid var(--primary);
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
@@ -506,220 +393,30 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--gradient-1);
-            transition: width 0.3s;
-        }
-
-        .service-card:hover::before {
             width: 100%;
-            opacity: 0.05;
+            height: 4px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.3s;
         }
 
         .service-card:hover {
-            transform: translateX(5px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
         }
 
-        .service-number {
-            font-family: 'Sora', sans-serif;
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
             font-size: 3rem;
-            font-weight: 800;
-            color: rgba(99, 102, 241, 0.15);
-            line-height: 1;
-            margin-bottom: 1rem;
-        }
-
-        .service-title {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.375rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .service-desc {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1.25rem;
-        }
-
-        .service-benefits {
-            list-style: none;
-            padding: 0;
-        }
-
-        .service-benefits li {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            padding: 0.5rem 0;
-            padding-left: 1.75rem;
-            position: relative;
-        }
-
-        .service-benefits li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: bold;
-        }
-
-        /* Health Check Section */
-        .health-check {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .health-check::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .health-check-content {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .health-check h2,
-        .health-check .section-tag {
-            color: white;
-        }
-
-        .health-check .section-tag {
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .health-check-features {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .hc-feature {
-            padding: 1.25rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .hc-feature:last-child {
-            border-bottom: none;
-        }
-
-        .hc-feature h3 {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .hc-feature p {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 0.95rem;
-        }
-
-        .deliverables-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .deliverable {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .deliverable-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
             display: block;
         }
 
-        .deliverable h4 {
-            font-family: 'Sora', sans-serif;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .deliverable p {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 0.9rem;
-        }
-
-        /* How We Work */
-        .how-we-work {
-            background: var(--bg-light);
-        }
-
-        .process-timeline {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .process-step {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .process-step::after {
-            content: '';
-            position: absolute;
-            left: 40px;
-            top: 80px;
-            width: 2px;
-            height: calc(100% + 3rem);
-            background: linear-gradient(to bottom, var(--accent), transparent);
-        }
-
-        .process-step:last-child::after {
-            display: none;
-        }
-
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Sora', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            color: white;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            z-index: 1;
-        }
-
-        .step-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-        }
-
-        .step-title {
+        .service-card h3 {
             font-family: 'Sora', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
@@ -727,52 +424,167 @@
             color: var(--text-primary);
         }
 
-        .step-desc {
+        .service-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            background: linear-gradient(135deg, #F8FAFC 0%, #EEF2FF 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-card h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 800;
+            font-family: 'Sora', sans-serif;
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .process-step h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .process-step p {
             color: var(--text-secondary);
             line-height: 1.7;
         }
 
         /* Contact Section */
-        .contact {
-            background: white;
-        }
-
         .contact-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
             align-items: start;
         }
 
         .contact-info {
-            padding: 2rem;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
         }
 
         .contact-item {
             display: flex;
-            align-items: start;
             gap: 1.5rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--bg-light);
-            border-radius: 12px;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
         }
 
         .contact-icon {
             width: 50px;
             height: 50px;
-            background: var(--gradient-1);
+            background: var(--gradient-2);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            color: white;
             flex-shrink: 0;
         }
 
         .contact-details h3 {
             font-family: 'Sora', sans-serif;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
             color: var(--text-primary);
@@ -780,6 +592,7 @@
 
         .contact-details p {
             color: var(--text-secondary);
+            line-height: 1.6;
         }
 
         .contact-details a {
@@ -793,100 +606,128 @@
         }
 
         .contact-form {
-            background: var(--bg-light);
-            padding: 3rem;
-            border-radius: 16px;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
             box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
         }
 
         .form-group {
             margin-bottom: 1.5rem;
         }
 
-        label {
+        .form-group label {
             display: block;
-            font-weight: 600;
             margin-bottom: 0.5rem;
+            font-weight: 600;
             color: var(--text-primary);
         }
 
-        input,
-        textarea,
-        select {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
             padding: 0.875rem 1.25rem;
             border: 2px solid var(--border);
-            border-radius: 8px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            border-radius: 10px;
+            font-family: inherit;
             font-size: 1rem;
             transition: all 0.3s;
             background: white;
         }
 
-        input:focus,
-        textarea:focus,
-        select:focus {
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(10, 77, 140, 0.1);
         }
 
-        textarea {
+        .form-group textarea {
             resize: vertical;
             min-height: 150px;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 1.125rem;
+            padding: 1rem 2rem;
             background: var(--gradient-1);
             color: white;
             border: none;
-            border-radius: 8px;
-            font-family: 'Sora', sans-serif;
-            font-size: 1.125rem;
-            font-weight: 700;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: var(--shadow-md);
         }
 
-        .submit-btn:hover {
+        .submit-btn:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Success/Error Messages */
+        .form-message {
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #D1FAE5;
+            color: #065F46;
+            border: 1px solid #10B981;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #FEE2E2;
+            color: #991B1B;
+            border: 1px solid #EF4444;
+            display: block;
         }
 
         /* Footer */
         footer {
-            background: var(--text-primary);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
             color: white;
-            padding: 3rem 2rem 1.5rem;
+            padding: 4rem 2rem 2rem;
         }
 
         .footer-content {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: 2fr repeat(3, 1fr);
             gap: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            margin-bottom: 3rem;
         }
 
         .footer-brand {
             font-family: 'Sora', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 800;
             margin-bottom: 1rem;
         }
 
         .footer-desc {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.8);
             line-height: 1.7;
+            margin-bottom: 1.5rem;
         }
 
         .footer-section h4 {
             font-family: 'Sora', sans-serif;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
@@ -900,99 +741,158 @@
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .footer-links a:hover {
-            color: var(--secondary);
+            color: white;
         }
 
         .footer-bottom {
             max-width: 1400px;
             margin: 0 auto;
             padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2.25rem; }
-            
-            .hero-container,
-            .health-check-content,
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.75rem; }
-            
-            .nav-links {
-                display: none;
-            }
-
-            .hero-ctas {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .credibility-grid,
-            .features-grid,
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .deliverables-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 3rem 1.5rem;
-            }
-        }
-
-        /* Page transitions */
+        /* Page System */
         .page {
             display: none;
         }
 
         .page.active {
             display: block;
-            animation: fadeIn 0.5s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Health Check Specific Styles */
+        .health-check-hero {
+            background: linear-gradient(135deg, #F8FAFC 0%, #EEF2FF 100%);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .deliverable-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--primary);
+        }
+
+        .deliverable-card h4 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .timeline {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            margin-top: 3rem;
+        }
+
+        .timeline-step {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .timeline-step:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-week {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            min-width: 100px;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+            border: 2px solid var(--primary);
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .price {
+            font-family: 'Sora', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 2rem 0;
         }
     </style>
 </head>
@@ -1005,8 +905,7 @@
                 <li><a href="#home" onclick="showPage('home')">Home</a></li>
                 <li><a href="#services" onclick="showPage('services')">Services</a></li>
                 <li><a href="#health-check" onclick="showPage('health-check')">Health Check</a></li>
-                <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
-                <li><a href="#contact" class="cta-btn" onclick="showPage('contact')">Get Started</a></li>
+                <li><a href="#contact" onclick="showPage('contact')" class="cta-btn">Contact Us</a></li>
             </ul>
         </div>
     </nav>
@@ -1017,220 +916,106 @@
         <section class="hero">
             <div class="hero-container">
                 <div class="hero-content">
-                    <span class="hero-tag">🏆 Certified Ivalua Experts</span>
+                    <span class="hero-tag">🏆 Ivalua Certified Consulting Experts</span>
                     <h1>
-                        <span class="hero-gradient">Ivalua Experts</span><br>
-                        Powering Smarter<br>
-                        Procurement Transformations
+                        Transform Procurement with <span class="gradient-text">Ivalua Excellence</span>
                     </h1>
                     <p class="hero-subtitle">
-                        9+ years of specialized Ivalua expertise delivering enterprise-scale S2C & P2P solutions. 
-                        From implementation to production support, we transform procurement operations globally.
+                        Global consulting firm with 9+ years of proven expertise in enterprise Ivalua implementations, 
+                        integrations, upgrades, and L2/L3 production support. Certified professionals delivering 
+                        measurable ROI across S2C and P2P transformations.
                     </p>
                     <div class="hero-ctas">
-                        <a href="#health-check" onclick="showPage('health-check')" class="btn btn-primary">
-                            Request an Ivalua Health Check →
+                        <a href="#contact" onclick="showPage('contact')" class="btn btn-primary">
+                            Request Free Consultation →
                         </a>
-                        <a href="#contact" onclick="showPage('contact')" class="btn btn-secondary">
-                            Talk to an Ivalua Expert
+                        <a href="#health-check" onclick="showPage('health-check')" class="btn btn-secondary">
+                            Get Health Check Assessment
                         </a>
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="hero-graphic">
-                        <div class="floating-card card-1 metric-card">
-                            <span class="metric-number">9+</span>
-                            <span class="metric-label">Years Ivalua<br>Experience</span>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">9+</div>
+                            <div class="stat-label">Years Ivalua Expertise</div>
                         </div>
-                        <div class="floating-card card-2 metric-card">
-                            <span class="metric-number">100%</span>
-                            <span class="metric-label">S2C & P2P<br>Certified</span>
+                        <div class="stat-card">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Successful Implementations</div>
                         </div>
-                        <div class="floating-card card-3 metric-card">
-                            <span class="metric-number">24/7</span>
-                            <span class="metric-label">Global L2/L3<br>Support</span>
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Certified Consultants</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Global Support Coverage</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Credibility Section -->
-        <section class="credibility">
-            <div class="container">
-                <div class="credibility-grid">
-                    <div class="cred-item">
-                        <div class="cred-icon">🎯</div>
-                        <div class="cred-title">9+ Years Ivalua Experience</div>
-                        <p class="cred-desc">Deep expertise across all Ivalua modules and versions</p>
-                    </div>
-                    <div class="cred-item">
-                        <div class="cred-icon">✓</div>
-                        <div class="cred-title">S2C & P2P Certified</div>
-                        <p class="cred-desc">Official Ivalua certifications across Source-to-Contract and Procure-to-Pay</p>
-                    </div>
-                    <div class="cred-item">
-                        <div class="cred-icon">🌍</div>
-                        <div class="cred-title">Global Delivery</div>
-                        <p class="cred-desc">Supporting enterprises across multiple regions and time zones</p>
-                    </div>
-                    <div class="cred-item">
-                        <div class="cred-icon">🛠️</div>
-                        <div class="cred-title">L2 / L3 Production Support</div>
-                        <p class="cred-desc">Expert-level troubleshooting and incident resolution</p>
-                    </div>
-                    <div class="cred-item">
-                        <div class="cred-icon">🔗</div>
-                        <div class="cred-title">Integration Specialists</div>
-                        <p class="cred-desc">SAP, ERP, REST APIs, and enterprise middleware expertise</p>
-                    </div>
-                    <div class="cred-item">
-                        <div class="cred-icon">📈</div>
-                        <div class="cred-title">Upgrade Specialists</div>
-                        <p class="cred-desc">Seamless version migrations with zero business disruption</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Why ProcureWise -->
-        <section class="why-us">
+        <!-- Why Choose ProcureWise -->
+        <section class="why-choose">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">Why Choose Us</span>
-                    <h2>Why ProcureWise?</h2>
+                    <span class="section-tag">Why ProcureWise</span>
+                    <h2>Your Trusted Ivalua Partner</h2>
                     <p class="section-subtitle">
-                        We're not just consultants. We're hands-on Ivalua experts who've been in the trenches, 
-                        solving complex procurement challenges for global enterprises.
+                        Combining deep Ivalua platform expertise with proven delivery methodologies to ensure 
+                        successful, on-time, and on-budget implementations.
                     </p>
                 </div>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <span class="feature-icon">💎</span>
-                        <h3 class="feature-title">Deep Technical Expertise</h3>
-                        <p class="feature-desc">
-                            Our team brings 9+ years of certified Ivalua experience. We've built, configured, and 
-                            optimized hundreds of workflows, callbacks, and integrations across S2C and P2P modules.
-                        </p>
+                        <div class="feature-icon">🎓</div>
+                        <h3>Certified Excellence</h3>
+                        <p>100% Ivalua-certified consultants with extensive hands-on experience across all platform modules and configurations.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="feature-icon">⚡</span>
-                        <h3 class="feature-title">Rapid Problem Resolution</h3>
-                        <p class="feature-desc">
-                            From critical production incidents to complex customizations, we deliver solutions fast. 
-                            Our L2/L3 support team resolves issues efficiently with minimal business disruption.
-                        </p>
+                        <div class="feature-icon">🌍</div>
+                        <h3>Global Delivery</h3>
+                        <p>Follow-the-sun support model with teams across Americas, EMEA, and APAC ensuring 24/7 coverage for critical operations.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="feature-icon">🎯</span>
-                        <h3 class="feature-title">Business-First Approach</h3>
-                        <p class="feature-desc">
-                            We don't just implement technology. We align Ivalua capabilities with your procurement 
-                            strategy, ensuring measurable ROI, user adoption, and operational excellence.
-                        </p>
+                        <div class="feature-icon">⚡</div>
+                        <h3>Rapid Implementation</h3>
+                        <p>Proven accelerators and pre-built templates reduce implementation time by 30-40% without compromising quality.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="feature-icon">🔄</span>
-                        <h3 class="feature-title">End-to-End Lifecycle Support</h3>
-                        <p class="feature-desc">
-                            From initial implementation to ongoing optimization, upgrades, and support. We're your 
-                            trusted partner at every stage of your Ivalua journey.
-                        </p>
+                        <div class="feature-icon">🔧</div>
+                        <h3>End-to-End Support</h3>
+                        <p>From initial assessment through implementation, integration, and ongoing L2/L3 production support—we're with you every step.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="feature-icon">🌐</span>
-                        <h3 class="feature-title">Global Scale, Local Touch</h3>
-                        <p class="feature-desc">
-                            Supporting multi-region rollouts with deep understanding of local procurement requirements, 
-                            compliance needs, and enterprise integration landscapes.
-                        </p>
+                        <div class="feature-icon">💡</div>
+                        <h3>Best Practices</h3>
+                        <p>Leverage our extensive library of industry-specific configurations and workflows refined across 50+ implementations.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="feature-icon">🚀</span>
-                        <h3 class="feature-title">Innovation & AI Readiness</h3>
-                        <p class="feature-desc">
-                            Preparing your Ivalua platform for AI, automation, and advanced analytics. We help you 
-                            stay ahead with intelligent procurement capabilities.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- How We Work -->
-        <section class="how-we-work">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Our Process</span>
-                    <h2>How We Work</h2>
-                    <p class="section-subtitle">
-                        A proven methodology honed through hundreds of successful Ivalua engagements
-                    </p>
-                </div>
-                <div class="process-timeline">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Discovery & Assessment</h3>
-                            <p class="step-desc">
-                                We start by understanding your current state, challenges, and business objectives. 
-                                Our Ivalua Health Check identifies gaps, risks, and quick wins in your platform.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Strategic Planning</h3>
-                            <p class="step-desc">
-                                We develop a detailed roadmap aligned with your procurement transformation goals, 
-                                covering implementation, integrations, upgrades, and optimization priorities.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Expert Execution</h3>
-                            <p class="step-desc">
-                                Our certified Ivalua consultants execute with precision. Configuration, custom workflows, 
-                                callbacks, integrations, and thorough testing ensure a stable, scalable platform.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Continuous Optimization</h3>
-                            <p class="step-desc">
-                                Post go-live, we provide L2/L3 support, performance monitoring, and continuous improvements. 
-                                Our partnership doesn't end at deployment—we ensure sustained value.
-                            </p>
-                        </div>
+                        <div class="feature-icon">📊</div>
+                        <h3>Measurable ROI</h3>
+                        <p>Data-driven approach with clear KPIs and success metrics demonstrating tangible value from day one.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="hero" style="min-height: 60vh; margin-top: 0;">
-            <div class="hero-container" style="grid-template-columns: 1fr;">
-                <div class="hero-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                    <h2 style="color: var(--text-primary); margin-bottom: 1.5rem;">
-                        Ready to Transform Your Ivalua Platform?
-                    </h2>
-                    <p class="hero-subtitle">
-                        Let's discuss how ProcureWise can accelerate your procurement transformation with expert 
-                        Ivalua consulting, support, and optimization services.
-                    </p>
-                    <div class="hero-ctas" style="justify-content: center;">
-                        <a href="#health-check" onclick="showPage('health-check')" class="btn btn-primary">
-                            Request an Ivalua Health Check →
-                        </a>
-                        <a href="#contact" onclick="showPage('contact')" class="btn btn-secondary">
-                            Talk to an Expert
-                        </a>
-                    </div>
+        <section style="background: var(--gradient-1); color: white;">
+            <div class="container" style="text-align: center;">
+                <h2 style="color: white; margin-bottom: 1.5rem;">
+                    Ready to Elevate Your Ivalua Implementation?
+                </h2>
+                <p class="hero-subtitle" style="color: rgba(255,255,255,0.9);">
+                    Schedule a consultation with our Ivalua experts to discuss your procurement transformation goals.
+                </p>
+                <div class="hero-ctas" style="justify-content: center;">
+                    <a href="#contact" onclick="showPage('contact')" class="btn btn-secondary" style="background: white; color: var(--primary);">
+                        Contact Us Today →
+                    </a>
                 </div>
             </div>
         </section>
@@ -1239,184 +1024,146 @@
     <!-- SERVICES PAGE -->
     <div id="services" class="page">
         <div style="margin-top: 80px;"></div>
-        <section class="services">
+        <section>
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">Our Expertise</span>
-                    <h2>Comprehensive Ivalua Services</h2>
+                    <span class="section-tag">Our Services</span>
+                    <h2>Comprehensive Ivalua Solutions</h2>
                     <p class="section-subtitle">
-                        End-to-end Ivalua consulting services designed to maximize your procurement platform's value, 
-                        stability, and business impact.
+                        Full-spectrum Ivalua consulting services designed to maximize your platform investment 
+                        and drive procurement excellence across your organization.
                     </p>
                 </div>
                 <div class="services-grid">
                     <div class="service-card">
-                        <div class="service-number">01</div>
-                        <h3 class="service-title">Ivalua S2C & P2P Implementations</h3>
-                        <p class="service-desc">
-                            Full lifecycle implementation of Source-to-Contract and Procure-to-Pay modules. From requirements 
-                            gathering to go-live, we ensure a seamless deployment that drives measurable procurement value.
+                        <span class="service-icon">🚀</span>
+                        <h3>Ivalua Implementation</h3>
+                        <p>
+                            End-to-end implementation services leveraging proven methodologies and best practices 
+                            to ensure successful platform deployment.
                         </p>
-                        <ul class="service-benefits">
-                            <li>Reduced time-to-value with proven methodologies</li>
-                            <li>Minimized deployment risks through expert planning</li>
-                            <li>High user adoption via intuitive configurations</li>
-                            <li>Scalable foundation for future growth</li>
+                        <ul class="service-features">
+                            <li>S2C (Source-to-Contract) implementation</li>
+                            <li>P2P (Procure-to-Pay) deployment</li>
+                            <li>Multi-module rollouts</li>
+                            <li>Change management & training</li>
+                            <li>Go-live support & stabilization</li>
                         </ul>
                     </div>
 
                     <div class="service-card">
-                        <div class="service-number">02</div>
-                        <h3 class="service-title">Ivalua Configuration & Customization</h3>
-                        <p class="service-desc">
-                            Tailored Ivalua configurations aligned to your unique procurement processes. We optimize forms, 
-                            fields, rules, and user experiences to match your operational requirements perfectly.
+                        <span class="service-icon">🔗</span>
+                        <h3>Integrations & Customization</h3>
+                        <p>
+                            Seamless integration with ERP systems and third-party applications, plus custom 
+                            configurations tailored to your unique business requirements.
                         </p>
-                        <ul class="service-benefits">
-                            <li>Process-specific customizations without over-engineering</li>
-                            <li>Maintainable, upgrade-friendly configurations</li>
-                            <li>Enhanced user productivity and satisfaction</li>
-                            <li>Compliance with corporate and regulatory standards</li>
+                        <ul class="service-features">
+                            <li>ERP integrations (SAP, Oracle, etc.)</li>
+                            <li>API development & management</li>
+                            <li>Custom workflow automation</li>
+                            <li>Data migration & synchronization</li>
+                            <li>Third-party system connectivity</li>
                         </ul>
                     </div>
 
                     <div class="service-card">
-                        <div class="service-number">03</div>
-                        <h3 class="service-title">Workflow Design & Callback Development</h3>
-                        <p class="service-desc">
-                            Expert development of complex Ivalua workflows and custom callbacks. We build intelligent automation 
-                            that accelerates approvals, enforces controls, and improves procurement cycle times.
+                        <span class="service-icon">🛠️</span>
+                        <h3>Production Support (L2/L3)</h3>
+                        <p>
+                            Dedicated support teams ensuring optimal platform performance with rapid issue resolution 
+                            and continuous improvement.
                         </p>
-                        <ul class="service-benefits">
-                            <li>Faster approval cycles with optimized routing</li>
-                            <li>Reduced manual errors through automation</li>
-                            <li>Real-time business rule enforcement</li>
-                            <li>Scalable callback architecture for future needs</li>
-                        </ul>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-number">04</div>
-                        <h3 class="service-title">Ivalua Integrations (SAP, ERP, REST APIs)</h3>
-                        <p class="service-desc">
-                            Seamless integration of Ivalua with SAP, Oracle, Microsoft Dynamics, and other enterprise systems. 
-                            Our integration expertise ensures real-time data synchronization and end-to-end process automation.
-                        </p>
-                        <ul class="service-benefits">
-                            <li>Reduced data silos and manual reconciliation</li>
-                            <li>Real-time visibility across procurement and finance</li>
-                            <li>Reliable, high-performance integration architecture</li>
-                            <li>Support for REST APIs, SOAP, EAI, and middleware</li>
-                        </ul>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-number">05</div>
-                        <h3 class="service-title">Ivalua Upgrade & Version Migration Services</h3>
-                        <p class="service-desc">
-                            Risk-free Ivalua version upgrades with zero business disruption. We manage the entire upgrade lifecycle, 
-                            ensuring compatibility, testing, and smooth transition to the latest platform capabilities.
-                        </p>
-                        <ul class="service-benefits">
-                            <li>Access to latest Ivalua features and security patches</li>
-                            <li>Thorough testing to prevent production issues</li>
-                            <li>Minimized downtime and user impact</li>
-                            <li>Post-upgrade support and stabilization</li>
-                        </ul>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-number">06</div>
-                        <h3 class="service-title">SQL Reporting & Spend Analytics</h3>
-                        <p class="service-desc">
-                            Custom SQL-based reporting and advanced spend analytics for Ivalua. Transform your procurement data into 
-                            actionable insights that drive cost savings and strategic supplier decisions.
-                        </p>
-                        <ul class="service-benefits">
-                            <li>Real-time visibility into spend, suppliers, and contracts</li>
-                            <li>Custom dashboards for executive decision-making</li>
-                            <li>Compliance and audit reporting automation</li>
-                            <li>Predictive analytics for procurement optimization</li>
-                        </ul>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-number">07</div>
-                        <h3 class="service-title">Ivalua Production Support (L2 / L3)</h3>
-                        <p class="service-desc">
-                            Expert-level L2 and L3 production support for your Ivalua platform. Our team provides rapid incident 
-                            resolution, root cause analysis, and proactive monitoring to ensure platform stability.
-                        </p>
-                        <ul class="service-benefits">
+                        <ul class="service-features">
                             <li>24/7 global support coverage</li>
-                            <li>Rapid incident resolution (SLA-driven)</li>
-                            <li>Proactive platform health monitoring</li>
-                            <li>Detailed incident documentation and knowledge transfer</li>
+                            <li>Incident & problem management</li>
+                            <li>Performance monitoring & tuning</li>
+                            <li>User support & training</li>
+                            <li>SLA-driven service delivery</li>
                         </ul>
                     </div>
 
                     <div class="service-card">
-                        <div class="service-number">08</div>
-                        <h3 class="service-title">Performance Optimization & Stabilization</h3>
-                        <p class="service-desc">
-                            Diagnose and resolve Ivalua performance issues. We optimize database queries, workflows, and configurations 
-                            to ensure your platform operates at peak efficiency even under heavy transaction loads.
+                        <span class="service-icon">⬆️</span>
+                        <h3>Upgrades & Migrations</h3>
+                        <p>
+                            Safe, efficient platform upgrades and migrations ensuring you benefit from the latest 
+                            Ivalua features with minimal disruption.
                         </p>
-                        <ul class="service-benefits">
-                            <li>Faster page load times and system responsiveness</li>
-                            <li>Reduced database and server resource consumption</li>
-                            <li>Improved user experience and satisfaction</li>
-                            <li>Scalability for growing transaction volumes</li>
+                        <ul class="service-features">
+                            <li>Version upgrade planning & execution</li>
+                            <li>Testing & validation</li>
+                            <li>Data migration & cleanup</li>
+                            <li>Rollback strategies</li>
+                            <li>Post-upgrade optimization</li>
                         </ul>
                     </div>
 
                     <div class="service-card">
-                        <div class="service-number">09</div>
-                        <h3 class="service-title">Ivalua Health Checks & Platform Assessments</h3>
-                        <p class="service-desc">
-                            Comprehensive evaluation of your Ivalua platform's configuration, integrations, performance, and readiness 
-                            for future enhancements. Identify risks, quick wins, and strategic improvement opportunities.
+                        <span class="service-icon">📋</span>
+                        <h3>Ivalua Health Check</h3>
+                        <p>
+                            Comprehensive platform assessment identifying optimization opportunities, technical debt, 
+                            and performance improvements.
                         </p>
-                        <ul class="service-benefits">
-                            <li>Uncover hidden risks and technical debt</li>
-                            <li>Prioritized roadmap of optimization opportunities</li>
-                            <li>Benchmark against Ivalua best practices</li>
-                            <li>Executive-ready assessment report with ROI projections</li>
+                        <ul class="service-features">
+                            <li>Configuration & architecture review</li>
+                            <li>Performance analysis</li>
+                            <li>Security & compliance audit</li>
+                            <li>User adoption assessment</li>
+                            <li>Actionable recommendations</li>
                         </ul>
                     </div>
 
                     <div class="service-card">
-                        <div class="service-number">10</div>
-                        <h3 class="service-title">AI & Automation Readiness for Ivalua</h3>
-                        <p class="service-desc">
-                            Prepare your Ivalua platform for AI-powered procurement. We assess data quality, process maturity, and 
-                            integration readiness to enable intelligent automation, predictive analytics, and generative AI use cases.
+                        <span class="service-icon">🎯</span>
+                        <h3>Strategic Advisory</h3>
+                        <p>
+                            Expert guidance on Ivalua roadmap planning, process optimization, and digital 
+                            transformation strategies.
                         </p>
-                        <ul class="service-benefits">
-                            <li>Accelerate procurement with AI-driven insights</li>
-                            <li>Automate routine tasks and decision-making</li>
-                            <li>Enhance supplier risk and spend forecasting</li>
-                            <li>Future-proof your procurement technology stack</li>
+                        <ul class="service-features">
+                            <li>Procurement transformation strategy</li>
+                            <li>Platform roadmap development</li>
+                            <li>Process redesign & optimization</li>
+                            <li>Change management planning</li>
+                            <li>ROI measurement & reporting</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="hero" style="min-height: 50vh; margin-top: 0;">
-            <div class="hero-container" style="grid-template-columns: 1fr;">
-                <div class="hero-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                    <h2 style="color: var(--text-primary); margin-bottom: 1.5rem;">
-                        Let's Discuss Your Ivalua Needs
-                    </h2>
-                    <p class="hero-subtitle">
-                        Whether you need implementation, support, or optimization, ProcureWise has the expertise 
-                        to deliver measurable results.
+        <!-- Process Section -->
+        <section style="background: var(--bg-light);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Our Approach</span>
+                    <h2>Proven Implementation Methodology</h2>
+                    <p class="section-subtitle">
+                        A structured, iterative approach ensuring successful delivery with minimal risk and maximum value.
                     </p>
-                    <div class="hero-ctas" style="justify-content: center;">
-                        <a href="#contact" onclick="showPage('contact')" class="btn btn-primary">
-                            Contact ProcureWise →
-                        </a>
+                </div>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Discover & Assess</h3>
+                        <p>Comprehensive analysis of current state, requirements gathering, and solution design aligned with your business objectives.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Design & Configure</h3>
+                        <p>Platform configuration, custom development, integration design, and rigorous testing before deployment.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Deploy & Train</h3>
+                        <p>Controlled rollout with comprehensive user training, change management, and go-live support.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Optimize & Support</h3>
+                        <p>Continuous monitoring, performance optimization, and dedicated L2/L3 support ensuring sustained success.</p>
                     </div>
                 </div>
             </div>
@@ -1426,139 +1173,128 @@
     <!-- HEALTH CHECK PAGE -->
     <div id="health-check" class="page">
         <div style="margin-top: 80px;"></div>
-        <section class="health-check">
+        <section>
             <div class="container">
-                <div class="health-check-content">
-                    <div>
-                        <span class="section-tag">Platform Assessment</span>
-                        <h2>ProcureWise Ivalua Health Check</h2>
-                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin-bottom: 2rem; line-height: 1.7;">
-                            Is your Ivalua platform performing at its best? Our comprehensive Health Check evaluates your 
-                            configuration, integrations, performance, and AI readiness to identify risks, inefficiencies, 
-                            and strategic opportunities.
-                        </p>
-                        <p style="color: rgba(255, 255, 255, 0.85); margin-bottom: 2rem; line-height: 1.7;">
-                            With 9+ years of Ivalua expertise, we've performed dozens of platform assessments for global 
-                            enterprises. Our Health Check delivers an actionable roadmap to optimize your procurement technology 
-                            investment.
-                        </p>
-                        <div class="deliverables-grid">
-                            <div class="deliverable">
-                                <span class="deliverable-icon">📊</span>
-                                <h4>Executive Summary</h4>
-                                <p>High-level findings, risks, and recommendations for leadership</p>
-                            </div>
-                            <div class="deliverable">
-                                <span class="deliverable-icon">⚠️</span>
-                                <h4>Risk Scorecard</h4>
-                                <p>Prioritized risks across configuration, integrations, and performance</p>
-                            </div>
-                            <div class="deliverable">
-                                <span class="deliverable-icon">⚡</span>
-                                <h4>Quick Wins</h4>
-                                <p>Immediate optimization opportunities with minimal effort</p>
-                            </div>
-                            <div class="deliverable">
-                                <span class="deliverable-icon">🗺️</span>
-                                <h4>Strategic Roadmap</h4>
-                                <p>Long-term improvement plan with ROI projections</p>
-                            </div>
-                        </div>
-                        <div style="margin-top: 2.5rem;">
-                            <a href="#contact" onclick="showPage('contact')" class="btn btn-primary" style="background: white; color: var(--primary);">
-                                Request Your Ivalua Health Check →
-                            </a>
-                        </div>
-                    </div>
-                    <div class="health-check-features">
-                        <h3 style="font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">
-                            What We Assess
-                        </h3>
-                        <div class="hc-feature">
-                            <h3>Configuration & Customization</h3>
-                            <p>
-                                Evaluate workflows, callbacks, forms, and rules for efficiency, maintainability, and alignment 
-                                with best practices.
-                            </p>
-                        </div>
-                        <div class="hc-feature">
-                            <h3>Integrations & Data Flow</h3>
-                            <p>
-                                Review integrations with SAP, ERP, and external systems. Identify data quality issues, 
-                                bottlenecks, and synchronization gaps.
-                            </p>
-                        </div>
-                        <div class="hc-feature">
-                            <h3>Performance & Scalability</h3>
-                            <p>
-                                Analyze system performance, database queries, and resource utilization. Recommend optimizations 
-                                for speed and scalability.
-                            </p>
-                        </div>
-                        <div class="hc-feature">
-                            <h3>Upgrade Readiness</h3>
-                            <p>
-                                Assess compatibility with the latest Ivalua version. Identify customizations that may require 
-                                refactoring or testing.
-                            </p>
-                        </div>
-                        <div class="hc-feature">
-                            <h3>AI & Automation Potential</h3>
-                            <p>
-                                Evaluate your platform's readiness for AI, machine learning, and advanced automation. 
-                                Identify use cases for intelligent procurement.
-                            </p>
-                        </div>
-                    </div>
+                <div class="health-check-hero">
+                    <span class="section-tag">Platform Assessment</span>
+                    <h2 style="font-family: 'Sora', sans-serif; font-size: 2.75rem; font-weight: 800; margin: 1rem 0; color: var(--text-primary);">
+                        Ivalua Health Check
+                    </h2>
+                    <p class="hero-subtitle" style="max-width: 800px; margin: 0 auto;">
+                        Comprehensive platform assessment delivering actionable insights to optimize performance, 
+                        reduce costs, and maximize ROI from your Ivalua investment.
+                    </p>
                 </div>
-            </div>
-        </section>
 
-        <section class="services">
-            <div class="container">
                 <div class="section-header">
-                    <h2>Why Run an Ivalua Health Check?</h2>
+                    <h2>What's Included</h2>
+                    <p class="section-subtitle">
+                        A thorough 360-degree evaluation of your Ivalua platform covering technical architecture, 
+                        configuration, integrations, user adoption, and business value realization.
+                    </p>
                 </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <span class="feature-icon">🔍</span>
-                        <h3 class="feature-title">Uncover Hidden Issues</h3>
-                        <p class="feature-desc">
-                            Many performance, integration, and configuration issues go unnoticed until they impact business. 
-                            Our Health Check identifies problems before they escalate.
+
+                <div class="deliverables-grid">
+                    <div class="deliverable-card">
+                        <h4>🏗️ Technical Architecture Review</h4>
+                        <p>
+                            Deep dive into system architecture, configuration standards, customizations, 
+                            and technical debt with specific recommendations for optimization.
                         </p>
                     </div>
-                    <div class="feature-card">
-                        <span class="feature-icon">💰</span>
-                        <h3 class="feature-title">Maximize ROI</h3>
-                        <p class="feature-desc">
-                            Ensure you're getting full value from your Ivalua investment. We identify underutilized features, 
-                            inefficient processes, and cost-saving opportunities.
+                    <div class="deliverable-card">
+                        <h4>⚡ Performance Analysis</h4>
+                        <p>
+                            Comprehensive performance testing, bottleneck identification, and tuning 
+                            recommendations to ensure optimal platform responsiveness.
                         </p>
                     </div>
-                    <div class="feature-card">
-                        <span class="feature-icon">🚀</span>
-                        <h3 class="feature-title">Prepare for Growth</h3>
-                        <p class="feature-desc">
-                            As your business evolves, your Ivalua platform must scale. Our assessment ensures your platform 
-                            can support future transaction volumes and complexity.
+                    <div class="deliverable-card">
+                        <h4>🔗 Integration Assessment</h4>
+                        <p>
+                            Review of all system integrations, data flows, error handling, and API 
+                            performance with improvement opportunities.
                         </p>
                     </div>
-                    <div class="feature-card">
-                        <span class="feature-icon">🛡️</span>
-                        <h3 class="feature-title">Reduce Risk</h3>
-                        <p class="feature-desc">
-                            Technical debt, outdated configurations, and integration vulnerabilities create operational risk. 
-                            We help you proactively address these exposures.
+                    <div class="deliverable-card">
+                        <h4>🔐 Security & Compliance Audit</h4>
+                        <p>
+                            Security configuration review, access controls validation, and compliance 
+                            gap analysis against industry standards.
                         </p>
                     </div>
+                    <div class="deliverable-card">
+                        <h4>👥 User Adoption Analysis</h4>
+                        <p>
+                            Usage analytics, stakeholder interviews, and pain point identification 
+                            to drive higher platform adoption.
+                        </p>
+                    </div>
+                    <div class="deliverable-card">
+                        <h4>📊 Business Value Assessment</h4>
+                        <p>
+                            ROI analysis, KPI tracking, and value realization assessment with 
+                            recommendations for enhanced business outcomes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem; color: var(--text-primary);">
+                        Delivery Timeline
+                    </h3>
+                    <div class="timeline-step">
+                        <div class="timeline-week">Week 1</div>
+                        <div>
+                            <h4 style="font-weight: 700; margin-bottom: 0.5rem;">Discovery & Data Collection</h4>
+                            <p style="color: var(--text-secondary);">
+                                Initial stakeholder interviews, system access setup, data extraction, 
+                                and documentation review.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-week">Week 2</div>
+                        <div>
+                            <h4 style="font-weight: 700; margin-bottom: 0.5rem;">Analysis & Assessment</h4>
+                            <p style="color: var(--text-secondary);">
+                                Technical review, performance testing, integration analysis, and 
+                                user adoption evaluation.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-week">Week 3</div>
+                        <div>
+                            <h4 style="font-weight: 700; margin-bottom: 0.5rem;">Findings & Recommendations</h4>
+                            <p style="color: var(--text-secondary);">
+                                Comprehensive report delivery with prioritized recommendations, 
+                                implementation roadmap, and executive presentation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--text-primary);">
+                        Investment
+                    </h3>
+                    <div class="price">Custom Quote</div>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                        Pricing based on platform complexity, modules in use, and scope of assessment. 
+                        Typical engagements range from $15,000 to $35,000.
+                    </p>
+                    <a href="#contact" onclick="showPage('contact')" class="btn btn-primary">
+                        Request Quote →
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section class="hero" style="min-height: 50vh; margin-top: 0;">
-            <div class="hero-container" style="grid-template-columns: 1fr;">
-                <div class="hero-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <!-- CTA -->
+        <section style="background: var(--gradient-1); color: white;">
+            <div class="container" style="text-align: center;">
+                <div style="max-width: 800px; margin: 0 auto;">
                     <h2 style="color: var(--text-primary); margin-bottom: 1.5rem;">
                         Ready to Optimize Your Ivalua Platform?
                     </h2>
@@ -1626,7 +1362,12 @@
                         <h3 style="font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary);">
                             Send Us a Message
                         </h3>
-                        <form id="contactForm" onsubmit="handleSubmit(event)">
+                        
+                        <!-- Form Message (Success/Error) -->
+                        <div id="formMessage" class="form-message"></div>
+                        
+                        <!-- Contact Form with Formspree -->
+                        <form id="contactForm" action="https://formspree.io/f/xjgwzoev" method="POST">
                             <div class="form-group">
                                 <label for="name">Full Name *</label>
                                 <input type="text" id="name" name="name" required placeholder="John Smith">
@@ -1655,7 +1396,11 @@
                                 <label for="message">Message *</label>
                                 <textarea id="message" name="message" required placeholder="Tell us about your Ivalua needs..."></textarea>
                             </div>
-                            <button type="submit" class="submit-btn">Send Message</button>
+                            <!-- Hidden field for form identification -->
+                            <input type="hidden" name="_subject" value="New Contact Form Submission - ProcureWise">
+                            <input type="hidden" name="_next" value="#contact">
+                            
+                            <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -1670,7 +1415,7 @@
                 <div class="footer-brand">ProcureWise</div>
                 <p class="footer-desc">
                     Global Ivalua consulting firm delivering enterprise-scale procurement transformations. 
-                    9+ years of certified expertise in S2C, P2P, integrations, and production support.
+                    10+ years of certified expertise in S2C, P2P, integrations, and production support.
                 </p>
             </div>
             <div class="footer-section">
@@ -1736,27 +1481,50 @@
             showPage(hash);
         });
 
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData);
-            
-            // Simulate form submission
-            alert('Thank you for contacting ProcureWise! We will respond to your inquiry within 24 hours.\n\nYour message has been received at info@procurewise.co.in');
-            
-            event.target.reset();
-            return false;
-        }
+        // Enhanced form handling with Formspree
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('formMessage');
 
-        // Add smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href.startsWith('#') && href.length > 1) {
-                    e.preventDefault();
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Hide any previous messages
+            formMessage.className = 'form-message';
+            formMessage.textContent = '';
+            
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Success
+                    formMessage.className = 'form-message success';
+                    formMessage.textContent = '✓ Thank you for contacting ProcureWise! We will respond to your inquiry within 24 hours.';
+                    contactForm.reset();
+                } else {
+                    // Error from Formspree
+                    throw new Error('Form submission failed');
                 }
-            });
+            } catch (error) {
+                // Error handling
+                formMessage.className = 'form-message error';
+                formMessage.textContent = '✗ Something went wrong. Please try again or email us directly at info@procurewise.co.in';
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
         });
     </script>
 </body>
